@@ -19,8 +19,8 @@ class Prototype:
 
     def clone(self, name, **attr):
         """Clone a registered object and update inner attributes dictionary"""
-        obj = copy.deepcopy(self._objects.get(name))
-        obj.__dict__.update(attr)
+        obj = copy.deepcopy(self._objects.get(name))    # 深拷贝
+        obj.__dict__.update(attr)                       # 对象属性修改的通用方式
         return obj
 
 

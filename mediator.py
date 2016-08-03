@@ -77,7 +77,7 @@ class DB:
         self._tm = tm
 
 
-class TestManager:
+class TestManager:          # 中介者
 
     def __init__(self):
         self._reporter = None

@@ -8,6 +8,10 @@ https://en.wikipedia.org/wiki/Lazy_evaluation
 http://stevenloria.com/lazy-evaluated-properties-in-python/
 """
 
+"""
+    __getattr()__: 只有当属性不存在的情况下会被调用, 返回一个值或抛出AttributeError异常
+    __getattribute()__: 无条件被调用，通过实例访问属性。如果class中定义了__getattr__()，则__getattr__()不会被调用（除非显示调用或引发AttributeError异常）
+"""
 
 def lazy_property(fn):
     """Decorator that makes a property lazy-evaluated."""

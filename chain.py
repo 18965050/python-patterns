@@ -55,10 +55,10 @@ class Client:
             self.handler.handle(request)
 
 
-def coroutine(func):
+def coroutine(func):    # 协程使用
     def start(*args, **kwargs):
         cr = func(*args, **kwargs)
-        cr.next()
+        next(cr)
         return cr
     return start
 

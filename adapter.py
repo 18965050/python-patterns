@@ -62,7 +62,7 @@ class Adapter(object):
     A Car goes vroom!!!
     """
 
-    def __init__(self, obj, **adapted_methods):
+    def __init__(self, obj, **adapted_methods):     #使用关键词参数
         """We set the adapted methods in the object's dict"""
         self.obj = obj
         self.__dict__.update(adapted_methods)

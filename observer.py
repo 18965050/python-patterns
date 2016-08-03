@@ -29,7 +29,7 @@ class Subject(object):
 class Data(Subject):
 
     def __init__(self, name=''):
-        Subject.__init__(self)
+        super().__init__()
         self.name = name
         self._data = 0
 

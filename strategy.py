@@ -12,11 +12,10 @@ import types
 
 
 class StrategyExample:
-
     def __init__(self, func=None):
         self.name = 'Strategy Example 0'
         if func is not None:
-            self.execute = types.MethodType(func, self)
+            self.execute = types.MethodType(func, self)  # 给实例动态添加方法
 
     def execute(self):
         print(self.name)
@@ -42,6 +41,31 @@ if __name__ == '__main__':
     strat0.execute()
     strat1.execute()
     strat2.execute()
+
+
+    # 类动态方法绑定
+    class A:
+        pass
+
+
+    def hello(self):
+        print('hello')
+
+
+    # a=A()
+    # a.hello=hello
+    # # a.hello()       # TypeError: hello() missing 1 required positional argument: 'self'
+    # a.hello(1)        # 能执行, 但违背了hello()作为对象方法的本质
+
+    # 方式一, 通过类型(注意: 非实例)来动态添加方法
+    A.hello = hello
+    a = A()
+    a.hello()
+
+    # 方式二, 通过types.MethodType()给实例添加动态方法
+    a = A()
+    a.hello = types.MethodType(hello, a)
+    a.hello()
 
 ### OUTPUT ###
 # Strategy Example 0

@@ -15,7 +15,7 @@ class SalesManager:
 class Proxy:
     def __init__(self):
         self.busy = 'No'
-        self.sales = None
+        self.sales = None       # 代理SalesManager对象
 
     def work(self):
         print("Proxy checking for Sales Manager availability")

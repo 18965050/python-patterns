@@ -35,7 +35,7 @@ class Transaction:
             a_state()
 
 
-class Transactional(object):
+class Transactional(object):            # property工厂类, 只覆盖了__get()__方法
     """Adds transactional semantics to methods. Methods decorated  with
     @Transactional will rollback to entry-state upon exceptions.
     """

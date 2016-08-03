@@ -27,7 +27,7 @@ class FlyweightMeta(type):
         Simple implementation is just to serialize it as a string
 
         """
-        args_list = map(str, args)
+        args_list = list(map(str, args))
         args_list.extend([str(kwargs), cls.__name__])
         key = ''.join(args_list)
         return key
@@ -43,7 +43,7 @@ class FlyweightMeta(type):
         return instance
 
 
-class Card(object):
+class Card(object):                 # 享元模式实现方式一. 通过类属性
 
     """The object pool. Has builtin reference counting"""
     _CardPool = weakref.WeakValueDictionary()
@@ -65,8 +65,8 @@ class Card(object):
         return "<Card: %s%s>" % (self.value, self.suit)
 
 
-class Card2(object):
-    __metaclass__ = FlyweightMeta
+class Card2(object, metaclass=FlyweightMeta):       # 享元模式实现方式二. 通过metaclass
+    # __metaclass__ = FlyweightMeta
 
     def __init__(self, *args, **kwargs):
         # print('Init {}: {}'.format(self.__class__, (args, kwargs)))

@@ -16,7 +16,7 @@ class GreekGetter:
         try:
             return self.trans[msgid]
         except KeyError:
-            return str(msgid)
+            return str(msgid)       # 找不到情况下返回原始字符
 
 
 class EnglishGetter:
